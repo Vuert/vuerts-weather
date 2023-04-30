@@ -1,10 +1,9 @@
 package com.vuerts.weather.utils.concurrent.errorhandling
 
-import android.util.Log
+import com.vuerts.weather.utils.logging.base.BaseLogger
 import kotlinx.coroutines.CoroutineExceptionHandler
 
-fun CoroutineExceptionHandler(): CoroutineExceptionHandler =
+fun CoroutineExceptionHandler(logger: BaseLogger): CoroutineExceptionHandler =
     CoroutineExceptionHandler { _, throwable ->
-        // TODO Add AppLogger here
-        Log.e("SafeCoroutineExceptionHandler", "Unexpected error", throwable)
+        logger.error("CoroutineExceptionHandler", "Unexpected error", throwable)
     }

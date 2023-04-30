@@ -50,7 +50,7 @@ abstract class BaseViewModel(
         start: CoroutineStart = CoroutineStart.DEFAULT,
         crossinline onCancellation: (CancellationException) -> Unit = {},
         crossinline onError: (Throwable) -> Unit = ::onError,
-        crossinline finally: () -> Unit = { },
+        crossinline finally: () -> Unit = {},
         crossinline block: CoroutineScope.() -> Unit,
     ): Job = scope.launch(context = context + unexpectedExceptionHandler, start = start) {
         try {
@@ -71,18 +71,5 @@ abstract class BaseViewModel(
      */
     protected open fun onError(throwable: Throwable) {
         errorLiveEvent.postValue(throwable)
-    }
-
-    final override fun onCleared() {
-        onDestroyed()
-        super.onCleared()
-    }
-
-    /**
-     * Allows to close all resources when ViewModel is destroyed.
-     * Used instead [onCleared] to keep all [ViewModel] class stuff in this class
-     */
-    protected open fun onDestroyed() {
-        // None
     }
 }
