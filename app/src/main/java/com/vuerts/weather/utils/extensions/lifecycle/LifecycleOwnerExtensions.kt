@@ -1,4 +1,4 @@
-package com.vuerts.weather.utils.extensions
+package com.vuerts.weather.utils.extensions.lifecycle
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

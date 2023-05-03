@@ -1,4 +1,4 @@
-package com.vuerts.weather.utils.extensions
+package com.vuerts.weather.utils.extensions.common
 
 fun <T> unsafeLazy(block: () -> T): Lazy<T> = lazy(LazyThreadSafetyMode.NONE, block)
 

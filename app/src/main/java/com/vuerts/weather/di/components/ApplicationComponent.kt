@@ -1,7 +1,7 @@
 package com.vuerts.weather.di.components
 
 import com.vuerts.weather.app.WeatherApplication
-import com.vuerts.weather.di.module.mainactivity.ActivityBindingModule
+import com.vuerts.weather.di.module.activity.ActivityBindingModule
 import com.vuerts.weather.di.module.app.UtilModule
 import dagger.BindsInstance
 import dagger.Component

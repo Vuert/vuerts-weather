@@ -3,13 +3,11 @@ package com.vuerts.weather.view.base
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.google.android.material.snackbar.Snackbar
-import com.vuerts.weather.R
 import com.vuerts.weather.presentation.base.viewmodel.BaseViewModel
-import com.vuerts.weather.utils.extensions.createViewModel
-import com.vuerts.weather.utils.extensions.inflateBinding
-import com.vuerts.weather.utils.extensions.repeatOnStarted
-import com.vuerts.weather.utils.extensions.unsafeLazy
+import com.vuerts.weather.utils.extensions.view.createViewModel
+import com.vuerts.weather.utils.extensions.view.inflateBinding
+import com.vuerts.weather.utils.extensions.lifecycle.repeatOnStarted
+import com.vuerts.weather.utils.extensions.common.unsafeLazy
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -40,9 +38,5 @@ abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> :
         repeatOnStarted {
             viewModel.errorFlow.collect { handleError(binding, it) }
         }
-    }
-
-    override fun handleError(binding: VB, throwable: Throwable) {
-        Snackbar.make(binding.root, R.string.error_occurred, Snackbar.LENGTH_LONG).show()
     }
 }

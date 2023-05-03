@@ -2,6 +2,8 @@ package com.vuerts.weather.view.base
 
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
+import com.vuerts.weather.R
 import com.vuerts.weather.presentation.base.viewmodel.BaseViewModel
 
 /**
@@ -20,6 +22,6 @@ interface BaseScreen<VB : ViewBinding, VM : BaseViewModel> {
      * Handles errors that come from a ViewModel
      */
     fun handleError(binding: VB, throwable: Throwable) {
-        TODO("Not implemented")
+        Snackbar.make(binding.root, R.string.error_occurred, Snackbar.LENGTH_LONG).show()
     }
 }

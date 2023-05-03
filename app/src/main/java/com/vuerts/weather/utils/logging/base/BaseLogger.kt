@@ -1,6 +1,6 @@
 package com.vuerts.weather.utils.logging.base
 
-import com.vuerts.weather.utils.extensions.EMPTY
+import com.vuerts.weather.utils.extensions.common.EMPTY
 import java.util.regex.Pattern
 
 abstract class BaseLogger {

@@ -1,9 +1,10 @@
-package com.vuerts.weather.utils.extensions
+package com.vuerts.weather.utils.extensions.lifecycle
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.vuerts.weather.utils.extensions.concurrent.awaitCancellation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
