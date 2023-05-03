@@ -1,4 +1,4 @@
-package com.vuerts.weather.utils.extensions
+package com.vuerts.weather.utils.extensions.concurrent
 
 import kotlinx.coroutines.CancellationException
 

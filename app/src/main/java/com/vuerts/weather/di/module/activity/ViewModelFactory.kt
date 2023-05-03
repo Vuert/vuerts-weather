@@ -1,4 +1,4 @@
-package com.vuerts.weather.di.module.mainactivity
+package com.vuerts.weather.di.module.activity
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
