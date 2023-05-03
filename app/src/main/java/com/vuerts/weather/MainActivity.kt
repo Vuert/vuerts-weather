@@ -1,11 +1,7 @@
 package com.vuerts.weather
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.vuerts.weather.databinding.ActivityMainBinding
+import com.vuerts.weather.presentation.stub.viewmodel.EmptyViewModel
+import com.vuerts.weather.view.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
-}
+class MainActivity : BaseActivity<ActivityMainBinding, EmptyViewModel>()

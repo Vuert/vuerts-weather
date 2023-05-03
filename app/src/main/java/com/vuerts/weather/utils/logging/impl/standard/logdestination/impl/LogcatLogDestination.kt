@@ -50,7 +50,7 @@ class LogcatLogDestination : LogDestination<Int>() {
                 startIndex += MAX_LOG_LENGTH
                 endIndex += MAX_LOG_LENGTH
 
-                if (endIndex > message.length) {
+                if (endIndex > message.lastIndex) {
                     endIndex = message.lastIndex
                 }
             }
