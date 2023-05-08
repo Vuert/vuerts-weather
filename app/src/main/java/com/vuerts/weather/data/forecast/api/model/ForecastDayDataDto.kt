@@ -3,7 +3,6 @@ package com.vuerts.weather.data.forecast.api.model
 import com.google.gson.annotations.SerializedName
 
 data class ForecastDayDataDto(
-
     @SerializedName("maxtemp_c")
     val maxtempC: Double,
 

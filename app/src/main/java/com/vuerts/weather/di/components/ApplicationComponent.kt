@@ -2,6 +2,7 @@ package com.vuerts.weather.di.components
 
 import com.vuerts.weather.app.WeatherApplication
 import com.vuerts.weather.di.module.activity.ActivityBindingModule
+import com.vuerts.weather.di.module.app.NetworkModule
 import com.vuerts.weather.di.module.app.UtilModule
 import dagger.BindsInstance
 import dagger.Component
@@ -14,6 +15,7 @@ import javax.inject.Singleton
     modules = [
         ActivityBindingModule::class,
         UtilModule::class,
+        NetworkModule::class,
         AndroidInjectionModule::class,
     ]
 )

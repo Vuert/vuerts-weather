@@ -22,16 +22,17 @@ class ForecastDtoToForecastMapper(
 ) {
 
     fun map(forecastDto: ForecastDto): Forecast = forecastDto.run {
-        val forecastDayDto = forecastDto.forecast.forecastday[0]
+        val forecastDayDto = forecast.forecastday[0]
 
+        // Sec to ms
         val date = Date(current.lastUpdatedEpoch * 1000)
 
-        val location = locationMapper.map(forecastDto.location)
+        val location = locationMapper.map(location)
 
         val weather = Weather(
             location = location,
             date = date,
-            condition = weatherConditionMapper.map(forecastDto.current.condition),
+            condition = weatherConditionMapper.map(current.condition),
             temp = Celsius(current.tempC),
             tempMax = Celsius(forecastDayDto.day.maxtempC),
             tempMin = Celsius(forecastDayDto.day.mintempC),

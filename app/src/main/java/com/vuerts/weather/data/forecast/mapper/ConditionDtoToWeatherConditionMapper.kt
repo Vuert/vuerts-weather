@@ -6,12 +6,12 @@ import com.vuerts.weather.domain.forecast.model.WeatherCondition
 class ConditionDtoToWeatherConditionMapper {
 
     fun map(weatherDto: ConditionDto): WeatherCondition =
-        requireNotNull(valuesMap[weatherDto.code]) {
+        requireNotNull(conditionsMap[weatherDto.code]) {
             "Cannot find ${WeatherCondition::name} item for code ${weatherDto.code}"
         }
 }
 
-private val valuesMap = mapOf(
+private val conditionsMap = mapOf(
     1000 to WeatherCondition.SUNNY,
     1003 to WeatherCondition.PARTLY_CLOUDY,
     1006 to WeatherCondition.CLOUDY,

@@ -1,4 +1,4 @@
-package com.vuerts.weather.domain.city
+package com.vuerts.weather.domain.location.model
 
 data class Location(
     val id: String,

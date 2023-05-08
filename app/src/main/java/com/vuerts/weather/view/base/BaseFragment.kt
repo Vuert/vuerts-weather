@@ -15,6 +15,9 @@ import com.vuerts.weather.utils.extensions.view.inflateBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
+/**
+ * Base class of all fragments
+ */
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> :
     DaggerFragment(),
     BaseScreen<VB, VM> {
