@@ -1,0 +1,22 @@
+ext {
+    weather_api_url = "http://api.weatherapi.com"
+}
+
+ext.applyAppConfig = { config ->
+    def props = new Properties()
+    def propertiesFile = file("$rootDir${File.separator}api.properties")
+    def weatherApiKey = "weather.key"
+
+    if (!propertiesFile.exists()) {
+        throw new FileNotFoundException("Properties file not found")
+    }
+
+    propertiesFile.withReader { props.load(it) }
+
+    if (!props.containsKey(weatherApiKey)) {
+        throw new IllegalStateException("Weather api key not found")
+    }
+
+    config.buildConfigField 'String', "WEATHER_API_KEY", "\"${props.getProperty(weatherApiKey)}\""
+    config.buildConfigField 'String', "WEATHER_API_URL", "\"$weather_api_url\""
+}
