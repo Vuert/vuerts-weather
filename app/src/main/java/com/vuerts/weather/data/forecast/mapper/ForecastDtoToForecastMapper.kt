@@ -40,7 +40,7 @@ class ForecastDtoToForecastMapper(
             humidity = Percents(current.humidity),
             clouds = Percents(current.cloud),
             // Kilometers to meters
-            visibility = Meters((forecastDayDto.day.avgvisKm / 1000).roundToLong()),
+            visibility = Meters((forecastDayDto.day.avgvisKm * 1000).roundToLong()),
             windSpeed = KilometersPerHour(current.windKph),
             windGust = KilometersPerHour(current.gustKph),
             sunrise = LocalTime.parse(forecastDayDto.astro.sunrise, dateTimeFormatter),

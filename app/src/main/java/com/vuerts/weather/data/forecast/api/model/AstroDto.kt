@@ -20,7 +20,7 @@ data class AstroDto(
     val moonPhase: String,
 
     @SerializedName("moon_illumination")
-    val moonIllumination: String,
+    val moonIllumination: Double,
 
     @SerializedName("is_moon_up")
     val isMoonUp: Int,

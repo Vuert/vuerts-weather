@@ -28,16 +28,16 @@ data class WeatherDto(
     val windDir: String,
 
     @SerializedName("pressure_mb")
-    val pressureMb: Long,
+    val pressureMb: Double,
 
     @SerializedName("pressure_in")
     val pressureIn: Double,
 
     @SerializedName("precip_mm")
-    val precipMm: Int,
+    val precipMm: Double,
 
     @SerializedName("precip_in")
-    val precipIn: Int,
+    val precipIn: Double,
 
     @SerializedName("humidity")
     val humidity: Int,
@@ -49,10 +49,10 @@ data class WeatherDto(
     val feelslikeC: Double,
 
     @SerializedName("vis_km")
-    val visKm: Int,
+    val visKm: Double,
 
     @SerializedName("uv")
-    val uv: Int,
+    val uv: Double,
 
     @SerializedName("gust_kph")
     val gustKph: Double,

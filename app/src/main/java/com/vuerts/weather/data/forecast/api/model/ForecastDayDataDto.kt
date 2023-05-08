@@ -41,7 +41,7 @@ data class ForecastDayDataDto(
     val avgvisKm: Double,
 
     @SerializedName("avgvis_miles")
-    val avgvisMiles: Int,
+    val avgvisMiles: Double,
 
     @SerializedName("avghumidity")
     val avghumidity: Int,
@@ -62,7 +62,7 @@ data class ForecastDayDataDto(
     val condition: ConditionDto,
 
     @SerializedName("uv")
-    val uv: Int,
+    val uv: Double,
 
     @SerializedName("air_quality")
     val airQuality: AirQualityDto,
