@@ -1,12 +1,11 @@
 package com.vuerts.weather.data.forecast.mapper
 
 import com.vuerts.weather.data.forecast.api.model.ForecastDto
-import com.vuerts.weather.domain.city.City
 import com.vuerts.weather.domain.forecast.model.Forecast
 import com.vuerts.weather.domain.forecast.model.Weather
 import com.vuerts.weather.domain.forecast.model.units.Celsius
-import com.vuerts.weather.domain.forecast.model.units.Meters
 import com.vuerts.weather.domain.forecast.model.units.KilometersPerHour
+import com.vuerts.weather.domain.forecast.model.units.Meters
 import com.vuerts.weather.domain.forecast.model.units.MilliBars
 import com.vuerts.weather.domain.forecast.model.units.Percents
 import java.time.LocalTime
@@ -15,18 +14,24 @@ import java.util.Date
 import kotlin.math.roundToLong
 
 class ForecastDtoToForecastMapper(
-    private val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("hh:mm a"),
+    private val weatherConditionMapper: ConditionDtoToWeatherConditionMapper =
+        ConditionDtoToWeatherConditionMapper(),
+    private val locationMapper: LocationDtoToLocation = LocationDtoToLocation(),
+    private val dateTimeFormatter: DateTimeFormatter =
+        DateTimeFormatter.ofPattern("hh:mm a"),
 ) {
 
-    fun map(forecastDto: ForecastDto, city: City): Forecast = forecastDto.run {
+    fun map(forecastDto: ForecastDto): Forecast = forecastDto.run {
         val forecastDayDto = forecastDto.forecast.forecastday[0]
 
         val date = Date(current.lastUpdatedEpoch * 1000)
 
+        val location = locationMapper.map(forecastDto.location)
 
         val weather = Weather(
-            id = location.run { "$lon$lat" },
+            location = location,
             date = date,
+            condition = weatherConditionMapper.map(forecastDto.current.condition),
             temp = Celsius(current.tempC),
             tempMax = Celsius(forecastDayDto.day.maxtempC),
             tempMin = Celsius(forecastDayDto.day.mintempC),
@@ -40,11 +45,11 @@ class ForecastDtoToForecastMapper(
             windGust = KilometersPerHour(current.gustKph),
             sunrise = LocalTime.parse(forecastDayDto.astro.sunrise, dateTimeFormatter),
             sunset = LocalTime.parse(forecastDayDto.astro.sunset, dateTimeFormatter),
-
-            )
+        )
+        // TODO add forecast items
         Forecast(
             date = date,
-            city = city,
+            location = location,
             current = weather,
         )
     }

@@ -4,7 +4,7 @@ import com.vuerts.weather.BuildConfig
 import com.vuerts.weather.data.forecast.api.service.ForecastService
 import com.vuerts.weather.data.forecast.mapper.ForecastDtoToForecastMapper
 import com.vuerts.weather.data.util.ApiKeyInterceptor
-import com.vuerts.weather.domain.city.City
+import com.vuerts.weather.domain.city.Location
 import com.vuerts.weather.domain.forecast.model.Forecast
 import com.vuerts.weather.domain.forecast.repository.ForecastRepository
 import okhttp3.OkHttpClient
@@ -24,9 +24,9 @@ class ForecastRemoteDatasource : ForecastRepository {
         .build()
         .create(ForecastService::class.java)
 
-    override suspend fun getForecast(city: City): Forecast {
-        val forecastDto = retrofit.getForecast(city.name)
+    override suspend fun getForecast(location: Location): Forecast {
+        val forecastDto = retrofit.getForecast(location.name)
 
-        return ForecastDtoToForecastMapper().map(forecastDto, city)
+        return ForecastDtoToForecastMapper().map(forecastDto)
     }
 }

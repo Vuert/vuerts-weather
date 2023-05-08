@@ -1,6 +1,6 @@
 package com.vuerts.weather.domain.city
 
-data class City(
+data class Location(
     val id: String,
     val name: String,
     val latitude: Double,

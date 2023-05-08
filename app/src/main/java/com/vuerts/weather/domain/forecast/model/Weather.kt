@@ -1,5 +1,6 @@
 package com.vuerts.weather.domain.forecast.model
 
+import com.vuerts.weather.domain.city.Location
 import com.vuerts.weather.domain.forecast.model.units.Celsius
 import com.vuerts.weather.domain.forecast.model.units.Meters
 import com.vuerts.weather.domain.forecast.model.units.KilometersPerHour
@@ -9,8 +10,9 @@ import java.time.LocalTime
 import java.util.Date
 
 data class Weather(
-    val id: String,
+    val location: Location,
     val date: Date,
+    val condition: WeatherCondition,
     val temp: Celsius,
     val tempMin: Celsius,
     val tempMax: Celsius,
