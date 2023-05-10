@@ -51,7 +51,7 @@ abstract class BaseViewModel(
         crossinline onCancellation: (CancellationException) -> Unit = {},
         crossinline onError: (Throwable) -> Unit = ::onError,
         crossinline finally: () -> Unit = {},
-        crossinline block: CoroutineScope.() -> Unit,
+        crossinline block: suspend CoroutineScope.() -> Unit,
     ): Job = scope.launch(context = context + unexpectedExceptionHandler, start = start) {
         try {
             block.invoke(this)

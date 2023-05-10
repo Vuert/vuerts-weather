@@ -1,12 +1,12 @@
 package com.vuerts.weather.data.forecast.repository
 
-import com.vuerts.weather.datasource.forecast.remote.datasource.ForecastRemoteDatasource
-import com.vuerts.weather.domain.location.model.Location
+import com.vuerts.weather.data.forecast.datasource.RemoteForecastDataSource
 import com.vuerts.weather.domain.forecast.model.Forecast
 import com.vuerts.weather.domain.forecast.repository.ForecastRepository
+import com.vuerts.weather.domain.location.model.Location
 
 class ForecastRepositoryImpl(
-    private val remoteDatasource: ForecastRemoteDatasource,
+    private val remoteDatasource: RemoteForecastDataSource,
 ) : ForecastRepository {
 
     override suspend fun getForecast(location: Location): Forecast =
