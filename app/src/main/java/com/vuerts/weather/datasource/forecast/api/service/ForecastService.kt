@@ -1,6 +1,6 @@
-package com.vuerts.weather.data.forecast.api.service
+package com.vuerts.weather.datasource.forecast.api.service
 
-import com.vuerts.weather.data.forecast.api.model.ForecastDto
+import com.vuerts.weather.datasource.forecast.api.model.ForecastDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
