@@ -1,6 +1,6 @@
-package com.vuerts.weather.data.forecast.mapper
+package com.vuerts.weather.datasource.forecast.mapper
 
-import com.vuerts.weather.data.forecast.api.model.LocationDto
+import com.vuerts.weather.datasource.forecast.api.model.LocationDto
 import com.vuerts.weather.domain.location.model.Location
 
 class LocationDtoToLocation {
