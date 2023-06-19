@@ -1,4 +1,4 @@
-package com.vuerts.weather.datasource.util
+package com.vuerts.weather.datasource.base.remote
 
 import com.vuerts.weather.BuildConfig
 import okhttp3.Interceptor

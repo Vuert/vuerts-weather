@@ -1,4 +1,4 @@
-package com.vuerts.weather.datasource.forecast.api.model
+package com.vuerts.weather.datasource.forecast.remote.model
 
 import com.google.gson.annotations.SerializedName
 
