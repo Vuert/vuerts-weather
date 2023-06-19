@@ -1,8 +1,8 @@
 package com.vuerts.weather.di.module.activity
 
-import com.vuerts.weather.view.impl.activity.MainActivity
 import com.vuerts.weather.di.annotations.scope.ActivityScope
-import com.vuerts.weather.di.module.fragment.FragmentBindingModule
+import com.vuerts.weather.di.module.screen.RootScreenModule
+import com.vuerts.weather.view.impl.activity.SingleActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -13,8 +13,8 @@ internal abstract class ActivityBindingModule {
     @ContributesAndroidInjector(
         modules = [
             BaseViewModelModule::class,
-            FragmentBindingModule::class,
+            RootScreenModule::class,
         ]
     )
-    abstract fun contributeMainActivity(): MainActivity
+    abstract fun contributeSingleActivity(): SingleActivity
 }
