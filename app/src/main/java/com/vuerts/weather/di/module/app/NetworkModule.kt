@@ -1,8 +1,8 @@
 package com.vuerts.weather.di.module.app
 
 import com.vuerts.weather.BuildConfig
-import com.vuerts.weather.datasource.forecast.api.service.ForecastService
-import com.vuerts.weather.datasource.util.ApiKeyInterceptor
+import com.vuerts.weather.datasource.forecast.remote.service.ForecastService
+import com.vuerts.weather.datasource.base.remote.ApiKeyInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

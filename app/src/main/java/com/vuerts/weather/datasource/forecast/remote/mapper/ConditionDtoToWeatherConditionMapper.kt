@@ -1,6 +1,6 @@
-package com.vuerts.weather.datasource.forecast.mapper
+package com.vuerts.weather.datasource.forecast.remote.mapper
 
-import com.vuerts.weather.datasource.forecast.api.model.ConditionDto
+import com.vuerts.weather.datasource.forecast.remote.model.ConditionDto
 import com.vuerts.weather.domain.forecast.model.WeatherCondition
 
 class ConditionDtoToWeatherConditionMapper {

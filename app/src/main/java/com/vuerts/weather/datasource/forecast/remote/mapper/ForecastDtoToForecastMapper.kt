@@ -1,6 +1,6 @@
-package com.vuerts.weather.datasource.forecast.mapper
+package com.vuerts.weather.datasource.forecast.remote.mapper
 
-import com.vuerts.weather.datasource.forecast.api.model.ForecastDto
+import com.vuerts.weather.datasource.forecast.remote.model.ForecastDto
 import com.vuerts.weather.domain.forecast.model.Forecast
 import com.vuerts.weather.domain.forecast.model.Weather
 import com.vuerts.weather.domain.forecast.model.units.Celsius
