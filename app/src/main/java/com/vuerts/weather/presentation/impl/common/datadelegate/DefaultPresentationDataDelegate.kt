@@ -1,4 +1,4 @@
-package com.vuerts.weather.presentation.impl.datadelegate
+package com.vuerts.weather.presentation.impl.common.datadelegate
 
 import com.vuerts.weather.presentation.base.datadelegate.PresentationDataDelegate
 import com.vuerts.weather.utils.logging.base.BaseLogger
