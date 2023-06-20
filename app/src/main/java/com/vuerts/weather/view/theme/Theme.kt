@@ -75,22 +75,18 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun AppTheme(
-    content: @Composable () -> Unit,
-) {
+fun AppTheme(content: @Composable () -> Unit) {
     // TODO add dark theme
     val colors = LightColors
     val systemUiController = rememberSystemUiController()
 
     systemUiController.setStatusBarColor(colors.background)
 
-    MaterialTheme(
-        colorScheme = LightColors,
-    ) {
+    MaterialTheme(colorScheme = colors) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = colors.background),
+                .background(color = MaterialTheme.colorScheme.background),
         ) {
             content.invoke()
         }
