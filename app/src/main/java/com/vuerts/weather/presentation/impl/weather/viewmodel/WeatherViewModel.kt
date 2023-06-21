@@ -13,11 +13,23 @@ class WeatherViewModel(
     private val forecastRepository: ForecastRepository,
 ) : BaseViewModel(dataDelegate) {
 
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading = _isLoading.asStateFlow()
+
     private val _forecastStateFlow = MutableStateFlow<Forecast?>(null)
     val forecastStateFlow = _forecastStateFlow.asStateFlow()
 
     init {
-        launchSafe {
+        updateForecast()
+    }
+
+    fun onRefresh() {
+        updateForecast()
+    }
+
+    private fun updateForecast() {
+        launchSafe(finally = { _isLoading.value = false }) {
+            _isLoading.value = true
             val mockLocation = Location(
                 id = "",
                 name = "Toronto",
