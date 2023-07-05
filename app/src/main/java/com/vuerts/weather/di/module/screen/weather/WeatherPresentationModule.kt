@@ -2,6 +2,7 @@ package com.vuerts.weather.di.module.screen.weather
 
 import com.vuerts.weather.di.annotations.key.ViewModelKey
 import com.vuerts.weather.domain.forecast.repository.ForecastRepository
+import com.vuerts.weather.domain.temperatureunit.repository.TemperatureUnitRepository
 import com.vuerts.weather.presentation.base.datadelegate.PresentationDataDelegate
 import com.vuerts.weather.presentation.base.viewmodel.BaseViewModel
 import com.vuerts.weather.presentation.impl.weather.viewmodel.WeatherViewModel
@@ -17,9 +18,11 @@ class WeatherPresentationModule {
     fun provideViewModel(
         dataDelegate: PresentationDataDelegate,
         forecastRepository: ForecastRepository,
+        temperatureUnitRepository: TemperatureUnitRepository,
     ): WeatherViewModel = WeatherViewModel(
         dataDelegate = dataDelegate,
         forecastRepository = forecastRepository,
+        temperatureUnitRepository = temperatureUnitRepository,
     )
 
     @Module

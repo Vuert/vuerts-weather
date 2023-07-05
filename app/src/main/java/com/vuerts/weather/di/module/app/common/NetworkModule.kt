@@ -1,4 +1,4 @@
-package com.vuerts.weather.di.module.app
+package com.vuerts.weather.di.module.app.common
 
 import com.vuerts.weather.BuildConfig
 import com.vuerts.weather.datasource.forecast.remote.service.ForecastService
@@ -26,8 +26,8 @@ class NetworkModule {
         )
         .build()
 
-    @Provides
     @Singleton
+    @Provides
     fun provideForecastService(retrofit: Retrofit): ForecastService =
         retrofit.create(ForecastService::class.java)
 }

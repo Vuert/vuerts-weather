@@ -2,8 +2,10 @@ package com.vuerts.weather.di.components
 
 import com.vuerts.weather.app.WeatherApplication
 import com.vuerts.weather.di.module.activity.ActivityBindingModule
-import com.vuerts.weather.di.module.app.NetworkModule
-import com.vuerts.weather.di.module.app.UtilModule
+import com.vuerts.weather.di.module.app.common.NetworkModule
+import com.vuerts.weather.di.module.app.common.UtilModule
+import com.vuerts.weather.di.module.app.temperatureunit.TemperatureUnitDataModule
+import com.vuerts.weather.di.module.app.weather.WeatherDataModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -16,6 +18,8 @@ import javax.inject.Singleton
         ActivityBindingModule::class,
         UtilModule::class,
         NetworkModule::class,
+        WeatherDataModule::class,
+        TemperatureUnitDataModule::class,
         AndroidInjectionModule::class,
     ]
 )

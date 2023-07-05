@@ -3,6 +3,7 @@ package com.vuerts.weather.presentation.impl.weather.viewmodel
 import com.vuerts.weather.domain.forecast.model.Forecast
 import com.vuerts.weather.domain.forecast.repository.ForecastRepository
 import com.vuerts.weather.domain.location.model.Location
+import com.vuerts.weather.domain.temperatureunit.repository.TemperatureUnitRepository
 import com.vuerts.weather.presentation.base.datadelegate.PresentationDataDelegate
 import com.vuerts.weather.presentation.base.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class WeatherViewModel(
     dataDelegate: PresentationDataDelegate,
+    temperatureUnitRepository: TemperatureUnitRepository,
     private val forecastRepository: ForecastRepository,
 ) : BaseViewModel(dataDelegate) {
 
@@ -18,6 +20,8 @@ class WeatherViewModel(
 
     private val _forecastStateFlow = MutableStateFlow<Forecast?>(null)
     val forecastStateFlow = _forecastStateFlow.asStateFlow()
+
+    val temperatureUnit = temperatureUnitRepository.temperatureUnit
 
     init {
         updateForecast()
