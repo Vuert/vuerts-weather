@@ -1,4 +1,4 @@
-package com.vuerts.weather.di.module.app
+package com.vuerts.weather.di.module.app.common
 
 import com.vuerts.weather.utils.logging.base.BaseLogger
 import com.vuerts.weather.utils.logging.impl.standard.StandardLogger

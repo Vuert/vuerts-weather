@@ -6,12 +6,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.vuerts.weather.view.impl.screen.root.RootScreen
+import com.vuerts.weather.view.impl.screen.weather.WeatherScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
-    startDestination: Screen = Screen.Root,
+    startDestination: Screen = Screen.Weather,
     navController: NavHostController = rememberNavController(),
 ) {
     NavHost(
@@ -19,12 +19,12 @@ fun AppNavHost(
         navController = navController,
         startDestination = startDestination.route
     ) {
-        composable(Screen.Root.route) {
-            RootScreen()
+        composable(Screen.Weather.route) {
+            WeatherScreen()
         }
     }
 }
 
 sealed class Screen(val route: String) {
-    object Root : Screen("root")
+    object Weather : Screen("weather")
 }

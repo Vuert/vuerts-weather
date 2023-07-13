@@ -1,14 +1,12 @@
 package com.vuerts.weather.view.theme
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.vuerts.weather.utils.extensions.compose.isDarkContent
 
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
@@ -78,17 +76,11 @@ private val DarkColors = darkColorScheme(
 fun AppTheme(content: @Composable () -> Unit) {
     // TODO add dark theme
     val colors = LightColors
-    val systemUiController = rememberSystemUiController()
 
-    systemUiController.setStatusBarColor(colors.background)
+    rememberSystemUiController().setSystemBarsColor(
+        color = Color.Transparent,
+        darkIcons = MaterialTheme.colorScheme.background.isDarkContent,
+    )
 
-    MaterialTheme(colorScheme = colors) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.background),
-        ) {
-            content.invoke()
-        }
-    }
+    MaterialTheme(colorScheme = colors, content = content)
 }

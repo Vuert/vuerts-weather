@@ -11,31 +11,31 @@ inline fun LifecycleOwner.repeatOnStarted(
 
 inline fun LifecycleOwner.launchOnLifecycleCreate(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_CREATE) { block() }
+): Job = lifecycle.launchOnLifecycleCreate(block)
 
 inline fun LifecycleOwner.launchOnLifecycleStart(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_START) { block() }
+): Job = lifecycle.launchOnLifecycleStart(block)
 
 inline fun LifecycleOwner.launchOnLifecycleResume(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_RESUME) { block() }
+): Job = lifecycle.launchOnLifecycleResume(block)
 
 inline fun LifecycleOwner.launchOnLifecyclePause(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_PAUSE) { block() }
+): Job = lifecycle.launchOnLifecyclePause(block)
 
 inline fun LifecycleOwner.launchOnLifecycleStop(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_STOP) { block() }
+): Job = lifecycle.launchOnLifecycleStop(block)
 
 inline fun LifecycleOwner.launchOnLifecycleDestroy(
     crossinline block: CoroutineScope.() -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_DESTROY) { block() }
+): Job = lifecycle.launchOnLifecycleDestroy(block)
 
 inline fun LifecycleOwner.launchOnAnyLifecycleEvent(
     crossinline block: CoroutineScope.(Lifecycle.Event) -> Unit,
-): Job = lifecycle.launchOnLifecycleEvent(Lifecycle.Event.ON_ANY, block)
+): Job = lifecycle.launchOnAnyLifecycleEvent(block)
 
 inline fun LifecycleOwner.launchOnLifecycleEvent(
     event: Lifecycle.Event,
